@@ -12,7 +12,7 @@ def main(argv=None):
 
     check_exit_code = run_sbt_command(f'; {TASK_SCALACHA}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
     format_exit_code = run_sbt_command(f'; {TASK_SCALAFMT}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
-    return format_cmd + check_cmd
+    return check_exit_code + format_exit_code
 
 if __name__ == '__main__':
     exit(main())
