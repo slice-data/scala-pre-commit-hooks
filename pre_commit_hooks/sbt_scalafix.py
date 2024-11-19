@@ -1,7 +1,7 @@
 from pre_commit_hooks.runner import run_sbt_command
 from colorama import init as colorama_init, Fore
 
-TASK_SCALAFIX = 'scalafixAll'
+TASK_SCALAFIX = 'scalafixAll --check'
 MISSING_PLUGIN_CHECK_STRING = 'Not a valid key: scalafix'
 MISSING_PLUGIN_ERROR_MSG = f'{Fore.RED}ERROR: Scalafix SBT plugin not present! See {Fore.BLUE}https://scalacenter.github.io/scalafix/docs/users/installation.html{Fore.RED} for installation instructions.'
 
