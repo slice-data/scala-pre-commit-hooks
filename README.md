@@ -22,6 +22,7 @@ Currently, they include the following:
 - `sbt-unused-imports` - as above, but also adds the "unused imports" warning.
 - `sbt-scalafmt` - runs `scalafmtCheckAll`.
 - `sbt-wartremover` - runs the wartremover plugin.
+- `sbt-scalafix` - runs `scalafixAll`
 
 To add one or more of the hooks into your repo:
 
@@ -39,6 +40,7 @@ To add one or more of the hooks into your repo:
         -   id: sbt-unused-imports #includes fatal warnings, arguments optional
             args: [--scope={defaultScope}]
         -   id: sbt-scalafmt
+        -   id: sbt-scalafix
         -   id: sbt-wartremover #arguments are optional
             args: [--warts=Warts.unsafe, --scope={defaultScope}]
     ```
