@@ -10,7 +10,7 @@ SCALAC_OPTION = '-Ywarn-unused-import'
 def main(argv=None):
     colorama_init()
 
-    check_exit_code = run_sbt_command(f'; clean ; set scalacOptions ++= Seq("{SCALAC_OPTION}") ; {TASK_SCALAFIX_CHECK}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
+    check_exit_code = run_sbt_command(f'; clean ; scalafixEnable ; set scalacOptions ++= Seq("{SCALAC_OPTION}") ; {TASK_SCALAFIX_CHECK}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
     format_exit_code = run_sbt_command(f'; {TASK_SCALAFIX}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
     return check_exit_code + format_exit_code
 
