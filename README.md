@@ -20,9 +20,9 @@ Currently, they include the following:
 
 - `sbt-fatal-warnings` - turns on `-Xfatal-warnings`, runs a clean compilation on the given scope.
 - `sbt-unused-imports` - as above, but also adds the "unused imports" warning.
-- `sbt-scalafmt` - runs `scalafmtCheckAll`.
+- `sbt-scalafmt` - runs scalafmt and formats the code.
 - `sbt-wartremover` - runs the wartremover plugin.
-- `sbt-scalafix` - runs `scalafixAll`
+- `sbt-scalafix` - runs scalafixAll and corrects the code.
 
 To add one or more of the hooks into your repo:
 
@@ -33,7 +33,7 @@ To add one or more of the hooks into your repo:
     repos:
     -   repo: https://github.com/pre-commit/pre-commit-hooks
         rev: {currentVersion}
-        default_phase: push #change to commit if desired
+        default_phase: pre-push #change to pre-commit if desired
         hooks: #mix and match any of the following:
         -   id: sbt-fatal-warnings #arguments optional
             args: [--scope={defaultScope}]
@@ -60,5 +60,5 @@ repos:
     rev: {currentVersion}
     hooks:
     -   id: sbt-fatal-warnings
-        stages: [pre-push] #or [commit, pre-push] etc.
+        stages: [pre-push] #or [pre-commit, pre-push] etc.
 ```
