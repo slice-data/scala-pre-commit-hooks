@@ -10,10 +10,9 @@ SCALAFIX_ENABLE = 'scalafixEnable'
 
 def main(argv=None):
     colorama_init()
-    enable_exit_code = run_sbt_command(f'; clean ; {SCALAC_OPTIONS} ; {SCALAFIX_ENABLE}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
-    check_exit_code = run_sbt_command(f'; {TASK_SCALAFIX_CHECK}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
-    format_exit_code = run_sbt_command(f'; {TASK_SCALAFIX}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
-    return enable_exit_code + check_exit_code + format_exit_code
+    check_exit_code = run_sbt_command(f'; clean ;  {SCALAC_OPTIONS} ; {SCALAFIX_ENABLE} ; {TASK_SCALAFIX_CHECK}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
+    format_exit_code = run_sbt_command(f'; clean ;  {SCALAC_OPTIONS} ; {SCALAFIX_ENABLE} ; {TASK_SCALAFIX}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
+    return check_exit_code + format_exit_code
 
 if __name__ == '__main__':
     exit(main())
