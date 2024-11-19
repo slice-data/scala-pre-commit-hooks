@@ -45,7 +45,7 @@ To add one or more of the hooks into your repo:
             args: [--warts=Warts.unsafe, --scope={defaultScope}]
     ```
 
- 3. Run `pre-commit install` to apply your hooks to the repo.
+ 3. Run `pre-commit install` and `pre-commit install --hook-type pre-push` to apply your hooks to the repo.
 
 ### How to control hook run time
 
