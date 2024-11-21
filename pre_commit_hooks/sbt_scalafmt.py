@@ -1,7 +1,8 @@
 from pre_commit_hooks.runner import run_sbt_command
 from colorama import init as colorama_init, Fore
 
-TASK_SCALAFMT = 'scalafmtCheckAll'
+TASK_SCALAFMT = 'scalafmtAll'
+TASK_SCALACHA = 'scalafmtCheckAll'
 MISSING_PLUGIN_CHECK_STRING = 'Not a valid key: scalafmtCheck'
 MISSING_PLUGIN_ERROR_MSG = f'{Fore.RED}ERROR: scalafmt SBT plugin not present! See {Fore.BLUE}https://scalameta.org/scalafmt/docs/installation.html#sbt{Fore.RED} for installation instructions.'
 
@@ -9,8 +10,9 @@ MISSING_PLUGIN_ERROR_MSG = f'{Fore.RED}ERROR: scalafmt SBT plugin not present! S
 def main(argv=None):
     colorama_init()
 
-    return run_sbt_command(f'; clean ; {TASK_SCALAFMT}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
-
+    check_exit_code = run_sbt_command(f'; {TASK_SCALACHA}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
+    format_exit_code = run_sbt_command(f'; {TASK_SCALAFMT}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
+    return check_exit_code + format_exit_code
 
 if __name__ == '__main__':
     exit(main())
