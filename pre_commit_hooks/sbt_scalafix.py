@@ -1,4 +1,3 @@
-import sys
 from pre_commit_hooks.runner import run_sbt_command
 from colorama import init as colorama_init, Fore
 
