@@ -62,3 +62,28 @@ repos:
     -   id: sbt-fatal-warnings
         stages: [pre-push] #or [pre-commit, pre-push] etc.
 ```
+### ScalaFmt Hook
+
+To run scalafmt hook, your project needs to have sbt-scalafmt plugin installed.
+
+### ScalaFix Hook
+
+To run scalafix hook, your project needs to have sbt-scalafix plugin installed.
+
+In addition to enable running scalafix on all files, semanticDB needs to be enabled in your build file.
+
+This can be done by adding the following to your build file:
+
+```scala
+
+inThisBuild(
+  List(
+    semanticdbEnabled := true,
+    semanticdbVersion := scalafixSemanticdb.revision
+  )
+)
+
+ThisBuild / scalacOptions ++= Seq(
+  "-Ywarn-unused-import"
+)
+```
