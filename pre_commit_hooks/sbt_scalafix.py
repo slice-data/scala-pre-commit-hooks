@@ -20,7 +20,7 @@ def main(argv=None):
         return 0
     file_list = ' '.join(scala_files)
     check_exit_code = run_sbt_command(f'; clean ;  {SCALAC_OPTIONS} ; {SCALAFIX_ENABLE} ; {TASK_SCALAFIX_CHECK} {file_list}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
-    format_exit_code = run_sbt_command(f'; clean ;  {SCALAC_OPTIONS} ; {SCALAFIX_ENABLE} ; {TASK_SCALAFIX} {file_list}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
+    format_exit_code = run_sbt_command(f';  {SCALAC_OPTIONS} ; {SCALAFIX_ENABLE} ; {TASK_SCALAFIX} {file_list}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
     return check_exit_code + format_exit_code
 
 if __name__ == '__main__':
