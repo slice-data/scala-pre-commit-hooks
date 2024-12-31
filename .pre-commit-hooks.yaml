@@ -19,8 +19,8 @@
   stages: [pre-commit,pre-push]
   language: python
   entry: sbt-scalafmt
-  pass_filenames: false
-  always_run: true
+  pass_filenames: true
+  always_run: false
   minimum_pre_commit_version: '4.0.0'
 - id: sbt-wartremover
   name: Scala WartRemover plugin check
@@ -35,6 +35,6 @@
   stages: [pre-commit,pre-push]
   language: python
   entry: sbt-scalafix
-  pass_filenames: false
-  always_run: true
+  pass_filenames: true
+  always_run: false
   minimum_pre_commit_version: '4.0.0'
