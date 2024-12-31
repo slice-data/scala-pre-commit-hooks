@@ -4,8 +4,8 @@ from typing import Optional
 
 import sys
 
-TASK_SCALAFMT = 'scalafmtAll'
-TASK_SCALACHA = 'scalafmtCheckAll'
+TASK_SCALAFMT = 'scalafmt'
+TASK_SCALACHA = 'scalafmtCheck'
 MISSING_PLUGIN_CHECK_STRING = 'Not a valid key: scalafmtCheck'
 MISSING_PLUGIN_ERROR_MSG: str = f'{Fore.RED}ERROR: scalafmt SBT plugin not present! See {Fore.BLUE}https://scalameta.org/scalafmt/docs/installation.html#sbt{Fore.RED} for installation instructions.'
 
