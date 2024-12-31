@@ -25,8 +25,8 @@ def main(argv: Optional[list[str]] = None) -> int:
     except subprocess.CalledProcessError as e:
         raise LookupError(f"Error determining main branch: {e}") # Default to 'main' if detection fails
 
-    check_exit_code: int = run_sbt_command(f'; {TASK_SCALACHA} --diff-ref={main_branch_name}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
-    format_exit_code: int = run_sbt_command(f'; {TASK_SCALAFMT} --diff-ref={main_branch_name}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
+    check_exit_code: int = run_sbt_command(f'; {TASK_SCALACHA} --mode diff-ref={main_branch_name}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
+    format_exit_code: int = run_sbt_command(f'; {TASK_SCALAFMT} --mode diff-ref={main_branch_name}', MISSING_PLUGIN_CHECK_STRING, MISSING_PLUGIN_ERROR_MSG)
     return check_exit_code + format_exit_code
 
 if __name__ == '__main__':
