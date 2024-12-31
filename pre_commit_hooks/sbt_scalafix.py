@@ -4,7 +4,7 @@ from typing import Optional
 
 import sys
 
-TASK_SCALAFIX = 'scalafix' # this one changes the files
+TASK_SCALAFIX = 'scalafixAll' # this one changes the files
 TASK_SCALAFIX_CHECK = 'scalafix --check'
 MISSING_PLUGIN_CHECK_STRING = 'Not a valid key: scalafix'
 MISSING_PLUGIN_ERROR_MSG: str = f'{Fore.RED}ERROR: Scalafix SBT plugin not present! See {Fore.BLUE}https://scalacenter.github.io/scalafix/docs/users/installation.html{Fore.RED} for installation instructions.'
